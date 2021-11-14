@@ -1,0 +1,15 @@
+psql -U postgres
+\c service_db1
+SELECT * FROM service.users;
+
+ id |   full_name    | login  |    password
+----+----------------+--------+-----------------
+  1 | green_gourgess | green  | 42isnotanumber
+  2 | blue_sea       | blue   | 42isnotananswer
+  3 | red_light      | red    | 42isnotanexit
+  4 | yellow_line    | yellow | 42isnotapoem
+  5 | purple_station | purple | 42isnotaweapon
+  6 | white_whale    | white  | 42is42
+  7 | black_velvet   | black  | 42isnotapersone
+ 13 | grey_eyes      | grey   | 42isnotanoption
+ 14 | gold_blossom   | gold   | 42isnotadoor

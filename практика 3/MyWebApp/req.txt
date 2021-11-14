@@ -1,0 +1,3 @@
+flask
+requsts
+psycopg2
