@@ -13,3 +13,4 @@ SELECT * FROM service.users;
   7 | black_velvet   | black  | 42isnotapersone
  13 | grey_eyes      | grey   | 42isnotanoption
  14 | gold_blossom   | gold   | 42isnotadoor
+ 15 | red_light      | red    | 42is42

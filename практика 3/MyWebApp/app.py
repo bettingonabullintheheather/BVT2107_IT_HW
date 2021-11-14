@@ -12,9 +12,15 @@ conn = psycopg2.connect(database="service_db1",
 
 cursor = conn.cursor()
 
-@app.route('/login/', methods=['GET'])
-def index():
-   return render_template('login.html')
+@app.route('/', methods=['POST', 'GET'])
+def main():
+    if request.method == 'POST':
+        if request.form.get("login"):
+            return redirect("/login/")
+        elif request.form.get("registration"):
+            return redirect("/registration/")     
+    return render_template('main.html')
+
 
 @app.route('/login/', methods=['POST', 'GET'])
 def login():
@@ -39,16 +45,16 @@ def registration():
         password = request.form.get('password')
   
         if len(name) < 3:   
-            print('Your name is too short.')
+            print('Invalid name.')
             while len(name) < 3:
                 name = request.form.get('name')
         if len(login) < 3:   
-            print('Login must be at least 3 characters long.')
+            print('Invalid login.')
             while len(login) < 3:
                 login = request.form.get('login')   
-        if len(password) < 8:   
-            print('Password must be at least 8 characters long.')
-            while len(password) < 8:
+        if len(password) < 6:   
+            print('Invalid password.')
+            while len(password) < 6:
                 password = request.form.get('password') 
 
         cursor.execute('INSERT INTO service.users (full_name, login, password) VALUES (%s, %s, %s);',
